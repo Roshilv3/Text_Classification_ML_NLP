@@ -1,11 +1,10 @@
 pandas
 numpy
 seaborn
-matplotlib
-sckikit-learn
+matplotlib==3.8.0
+scikit-learn
 spacy==3.7.2
-en_core_web_sm==3.7.2
 emoji
 contractions
 wordcloud
-- e.
+-e .

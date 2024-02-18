@@ -1,0 +1,6 @@
+README.md
+setup.py
+Text_Classification_ML_Project.egg-info/PKG-INFO
+Text_Classification_ML_Project.egg-info/SOURCES.txt
+Text_Classification_ML_Project.egg-info/dependency_links.txt
+Text_Classification_ML_Project.egg-info/top_level.txt
