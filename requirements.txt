@@ -8,3 +8,4 @@ en_core_web_sm==3.7.2
 emoji
 contractions
 wordcloud
+- e.
