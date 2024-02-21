@@ -1,0 +1,51 @@
+from src.text_Classification_ML.constants import *
+from src.text_Classification_ML.utils.common import *
+from src.text_Classification_ML.entity import *
+
+
+
+class ConfigurationManager:
+    def __init__(
+            self,
+            config_file_path = Config_File_Path,
+            params_file_path = Params_File_Path,
+            schema_file_path = Schema_File_Path
+            ):
+        self.config = read_yaml(config_file_path)
+        self.params = read_yaml(params_file_path)
+        self.schema = read_yaml(schema_file_path)
+
+        create_directories([self.config.artifacts_root])
+
+
+    #################################################################
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
+        config = self.config.data_ingestion
+
+        create_directories([config.root_dir])
+
+        data_ingestion_config = DataIngestionConfig(
+            root_dir= config.root_dir,
+            sourceURL= config.sourceURL,
+            local_file_dir= config.local_file_dir,
+            unzip_dir= config.unzip_dir
+        )
+
+
+        return data_ingestion_config
+
+    #################################################################
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema.Columns
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            root_dir= config.root_dir,
+            data_dir= config.data_dir,
+            STATUS_FILE_DIR= config.STATUS_FILE_DIR,
+            all_schema= schema
+        )
+
+        return data_validation_config

@@ -1,0 +1,21 @@
+# Root Directory
+artifacts_root: artifacts
+
+# Data Ingestion
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  sourceURL: https://github.com/Roshilv3/all_Datasets/raw/main/data_spotify.zip
+  local_file_dir: artifacts/data_ingestion/data_spotify.zip
+  unzip_dir: artifacts/data_ingestion
+
+# Data Transformation
+data_validation:
+  root_dir: artifacts/data_validation
+  data_dir: artifacts/data_ingestion/data_spotify.csv
+  STATUS_FILE_DIR: artifacts/data_validation/status.txt
+
+# Data Cleaning
+data_cleaning:
+  root_dir: artifacts/data_cleaning
+  data_dir: artifacts/data_ingestion/data_spotify.csv
+  new_data_dir: artifacts/data_cleaning

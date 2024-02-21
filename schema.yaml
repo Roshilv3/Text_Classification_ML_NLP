@@ -1,0 +1,9 @@
+Columns:
+  Time_submitted   : object
+  Review           : object
+  Rating           :  int64
+  Total_thumbsup   :  int64
+  Reply            : object
+
+Target_column:
+  target: Rating
