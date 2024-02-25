@@ -18,7 +18,7 @@ class ConfigurationManager:
         create_directories([self.config.artifacts_root])
 
 
-    #################################################################
+    ##############################################################################
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
@@ -34,7 +34,7 @@ class ConfigurationManager:
 
         return data_ingestion_config
 
-    #################################################################
+    ##############################################################################
     def get_data_validation_config(self) -> DataValidationConfig:
         config = self.config.data_validation
         schema = self.schema.Columns
@@ -50,7 +50,7 @@ class ConfigurationManager:
 
         return data_validation_config
     
-    ################################################################
+    ##############################################################################
     def get_data_cleaning_config(self) -> DataCleaningConfig:
         config = self.config.data_cleaning
 
@@ -64,7 +64,7 @@ class ConfigurationManager:
 
         return data_cleaning_config
     
-    #################################################################
+    ##############################################################################
     def get_data_transformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
 
@@ -76,3 +76,20 @@ class ConfigurationManager:
             )
 
         return data_transformation_config
+    
+    ##############################################################################
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir= config.root_dir,
+            train_tfidf= config.train_tfidf,
+            test_tfidf= config.test_tfidf,
+            train_y= config.train_y,
+            test_y= config.test_y,
+            model_name= config.model_name
+        )
+
+        return model_trainer_config

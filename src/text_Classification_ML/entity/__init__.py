@@ -30,3 +30,13 @@ class DataCleaningConfig:
 class DataTransformationConfig:
     root_dir: Path
     data_dir: Path
+
+####################################
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    train_tfidf: Path
+    test_tfidf: Path
+    train_y: Path
+    test_y: Path
+    model_name: str

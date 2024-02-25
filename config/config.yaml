@@ -24,3 +24,12 @@ data_cleaning:
 data_transformation:
   root_dir: artifacts/data_transformation
   data_dir: artifacts/data_cleaning/data_spotify_new.csv
+
+# Model Trainer
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_tfidf: artifacts/data_transformation/train_tfidf.csv.npz
+  test_tfidf: artifacts/data_transformation/test_tfidf.csv.npz
+  train_y: artifacts/data_transformation/train.csv
+  test_y: artifacts/data_transformation/test.csv
+  model_name: model.joblib
