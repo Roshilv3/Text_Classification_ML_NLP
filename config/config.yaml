@@ -19,3 +19,8 @@ data_cleaning:
   root_dir: artifacts/data_cleaning
   data_dir: artifacts/data_ingestion/data_spotify.csv
   new_data_dir: artifacts/data_cleaning
+
+# Data Transformation
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_dir: artifacts/data_cleaning/data_spotify_new.csv

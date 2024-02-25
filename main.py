@@ -2,6 +2,7 @@ from src.text_Classification_ML.logger import logging
 from src.text_Classification_ML.pipeline.stage01_DataIngestion_pipeline import *
 from src.text_Classification_ML.pipeline.stage02_DataValidation_pipeline import *
 from src.text_Classification_ML.pipeline.Stage03_DataCleaning_pipeline import *
+from src.text_Classification_ML.pipeline.stage04_DataTransformation_pipeline import *
 
 
 ############################################################################
@@ -25,11 +26,21 @@ except Exception as e:
     raise e
 
 ###########################################################################
-STAGE_NAME_03 = "DATA Cleaning STAGE"
+STAGE_NAME_03 = "DATA CLEANING STAGE"
 try:
     logging.info(f">>> {STAGE_NAME_03} started<<<")
     data_cleaning = DataCleaningPipeline()
     data_cleaning.main()
     logging.info(f">>> {STAGE_NAME_03} completed<<<\n\n -_-_-_-_-_-")
+except Exception as e:
+    raise e
+
+###########################################################################
+STAGE_NAME_04 = "DATA TRANSFORMATION STAGE"
+try:
+    logging.info(f">>> {STAGE_NAME_04} started<<<")
+    data_transformation = DataTransformationPipeline()
+    data_transformation.main()
+    logging.info(f">>> {STAGE_NAME_04} completed<<<\n\n -_-_-_-_-_-")
 except Exception as e:
     raise e

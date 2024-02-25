@@ -4,11 +4,13 @@ import emoji
 import contractions
 import re
 import unicodedata
+import spacy
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 from src.text_Classification_ML.config.configuration import DataCleaningConfig
 
+nlp = spacy.load("en_core_web_sm")
 
 class DataCleaning:
     def __init__(self, config: DataCleaningConfig):

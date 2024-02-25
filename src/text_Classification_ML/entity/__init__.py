@@ -24,3 +24,9 @@ class DataCleaningConfig:
     root_dir         : Path
     data_dir         : Path
     new_data_dir     : Path
+
+####################################
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    data_dir: Path
