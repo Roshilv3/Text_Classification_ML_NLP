@@ -49,3 +49,17 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+    
+    ################################################################
+    def get_data_cleaning_config(self) -> DataCleaningConfig:
+        config = self.config.data_cleaning
+
+        create_directories([config.root_dir])
+
+        data_cleaning_config = DataCleaningConfig(
+            root_dir= config.root_dir,
+            data_dir= config.data_dir,
+            new_data_dir= config.new_data_dir,
+        )
+
+        return data_cleaning_config

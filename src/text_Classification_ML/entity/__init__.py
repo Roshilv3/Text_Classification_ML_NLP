@@ -17,3 +17,10 @@ class DataValidationConfig:
     data_dir: Path
     STATUS_FILE_DIR: Path
     all_schema: dict
+
+###################################
+@dataclass(frozen=True)
+class DataCleaningConfig:
+    root_dir         : Path
+    data_dir         : Path
+    new_data_dir     : Path
