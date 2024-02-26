@@ -2,6 +2,7 @@ import pandas as pd
 import scipy.sparse
 import joblib
 from sklearn.linear_model import LogisticRegression
+from src.text_Classification_ML.logger import logging
 from src.text_Classification_ML.config.configuration import *
 
 class ModelTrainer:
@@ -16,8 +17,10 @@ class ModelTrainer:
         train = pd.read_csv(self.config.train_y)
         test = pd.read_csv(self.config.test_y)
 
+        logging.info("Reading the data")
+
         # Train a Logistic Regression model
-        model = LogisticRegression(max_iter=1000)
+        model = LogisticRegression(max_iter=1000, solver= 'liblinear')
         model.fit(train_tfidf, train['Rating'])
 
         joblib.dump(model, os.path.join(self.config.root_dir, self.config.model_name))

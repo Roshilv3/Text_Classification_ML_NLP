@@ -33,3 +33,11 @@ model_trainer:
   train_y: artifacts/data_transformation/train.csv
   test_y: artifacts/data_transformation/test.csv
   model_name: model.joblib
+
+# Model Evaluation
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  test_tfidf: artifacts/data_transformation/test_tfidf.csv.npz
+  test_y: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/model.joblib
+  metrics_file_path: artifacts/model_evaluation/metric.json

@@ -40,3 +40,12 @@ class ModelTrainerConfig:
     train_y: Path
     test_y: Path
     model_name: str
+
+####################################
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    test_tfidf: Path
+    test_y: Path
+    model_path: Path
+    metrics_file_path: Path

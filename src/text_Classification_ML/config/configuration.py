@@ -93,3 +93,19 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+    
+    ##############################################################################
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir= config.root_dir,
+            test_tfidf= config.test_tfidf,
+            test_y= config.test_y,
+            model_path= config.model_path,
+            metrics_file_path= config.metrics_file_path
+        )
+
+        return model_evaluation_config

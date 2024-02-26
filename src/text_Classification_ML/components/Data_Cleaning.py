@@ -8,6 +8,7 @@ import spacy
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+from src.text_Classification_ML.logger import logging
 from src.text_Classification_ML.config.configuration import DataCleaningConfig
 
 nlp = spacy.load("en_core_web_sm")
@@ -20,6 +21,7 @@ class DataCleaning:
     
     def clean_text(self):
         self.df['Cleaned_Review'] = self.df['Review'].apply(self._clean_single_text)
+        logging.info("text cleared")
         return self.df
 
 

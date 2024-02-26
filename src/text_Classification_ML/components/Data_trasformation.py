@@ -4,8 +4,9 @@ import scipy.sparse
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from src.text_Classification_ML.config.configuration import *
+import warnings
 
-
+warnings.filterwarnings("ignore")
 
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
@@ -14,7 +15,12 @@ class DataTransformation:
     def train_test_split(self):
         data = pd.read_csv(self.config.data_dir)
 
+        # Fill the missing values
         data['Cleaned_Review'].fillna("", inplace=True)
+
+        # Re-Maping the rating volumn
+        rating_map = {1: 1, 2: 1, 3: 2, 4: 3, 5: 3}
+        data['Rating'] = data['Rating'].map(rating_map)
 
         # Split the data into train and test sets.
         train, test = train_test_split(data, train_size=0.80)
