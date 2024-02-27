@@ -30,6 +30,10 @@ class DataTransformation:
         train_tfidf = tfidf_vectorizer.fit_transform(train['Cleaned_Review'])
         test_tfidf = tfidf_vectorizer.transform(test['Cleaned_Review'])
 
+        # Save the TF-IDF vectorizer
+        vectorizer_filename = os.path.join(self.config.root_dir, "tfidf_vectorizer.pkl")
+        joblib.dump(tfidf_vectorizer, vectorizer_filename)
+
         # Save the TF-IDF matrices
         train_tfidf_filename = os.path.join(self.config.root_dir, "train_tfidf.csv")
         test_tfidf_filename = os.path.join(self.config.root_dir, "test_tfidf.csv")
